@@ -12,8 +12,7 @@ function scanCalculate(calculate) {
     let operators_with_index = [];
     for (let i = 0; i < length; i++) {
         if (operators.includes(calculate[i])) {
-            operators_with_index.concat([calculate[i],calculate.indexOf(calculate[i])])
-            console.log("index de l'operator : " + calculate[i])
+            operators_with_index.push([calculate[i],i])
         }
     }
 }

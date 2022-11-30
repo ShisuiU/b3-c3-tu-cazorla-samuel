@@ -2,17 +2,42 @@ const prompt = require('prompt');
 console.log("Entrez le calcul que vous voulez effectuer : ");
 prompt.start();
 prompt.get('calcul', function (err, result) {
-    scanCalculate(result.calcul);
+    let calculate = result.calcul;
+    let operatorsWithIndex = scanCalculate(calculate);
+    let i = 0;
+    let j = 0;
+    operatorsWithIndex.forEach(occurencie => {
+        console.log("occurencie : " + operatorsWithIndex[i+1][1]);
+        // let leftPart= calculate.slice(j, occurencie[1]);
+        // let rightPart= calculate.slice(parseInt(occurencie[1]+1), operatorsWithIndex[i+1][1])
+        // console.log("leftPart= " + leftPart);
+        // console.log("rightPart= " + rightPart);
+        // switch (occurencie[0]) {
+        //     case '+':
+        //
+        //     case '-':
+        //
+        //     case '*':
+        //
+        //     case '/':
+        //
+        //     case '%':
+        // }
+        i++;
+        j = occurencie[1]+1;
+    })
 });
 
 function scanCalculate(calculate) {
-    const operators = ["+","-", "*","/", "%"];
+    const operators = ["+", "-", "*","/", "%"];
     const length = calculate.length;
     let char;
-    let operators_with_index = [];
+    let operatorsWithIndex = [];
     for (let i = 0; i < length; i++) {
         if (operators.includes(calculate[i])) {
-            operators_with_index.push([calculate[i],i])
+            operatorsWithIndex.push([calculate[i],i])
         }
     }
+
+    return operatorsWithIndex;
 }

@@ -6,8 +6,14 @@ prompt.get('calcul', function (err, result) {
 });
 
 function scanCalculate(calculate) {
-    console.log("calcul: " + calculate);
-    //const word = calculate.split('');
-    const chars = /[/+/-/*/%]/;
-    console.log(calculate.search(chars));
+    const operators = ["+","-", "*","/", "%"];
+    const length = calculate.length;
+    let char;
+    let operators_with_index = [];
+    for (let i = 0; i < length; i++) {
+        if (operators.includes(calculate[i])) {
+            operators_with_index.concat([calculate[i],calculate.indexOf(calculate[i])])
+            console.log("index de l'operator : " + calculate[i])
+        }
+    }
 }

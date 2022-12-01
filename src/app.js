@@ -28,16 +28,3 @@ prompt.get('calcul', function (err, result) {
     })
 });
 
-function scanCalculate(calculate) {
-    const operators = ["+", "-", "*","/", "%"];
-    const length = calculate.length;
-    let char;
-    let operatorsWithIndex = [];
-    for (let i = 0; i < length; i++) {
-        if (operators.includes(calculate[i])) {
-            operatorsWithIndex.push([calculate[i],i])
-        }
-    }
-
-    return operatorsWithIndex;
-}

@@ -11,7 +11,7 @@
 </head>
 <body>
     <center>
-    <h1 class="title">Calculatrice JS Test<h1>
+    <h1 class="title">Calculatrice JS<h1>
         <table>
             <tr>
                 <td colspan="4" align="right" id="case">
@@ -20,6 +20,20 @@
             </tr>
         </table>
         <table>
+            <tr>
+                <td>
+                    <input class="operator" type="button"/>
+                </td>
+                <td>
+                    <input class="operator" type="button" value="(" id="button-(" onclick="btmOpenPar()"/>
+                </td>
+                <td>
+                    <input class="operator" type="button" value=")" id="button-)" onclick="btmClosePar()"/>
+                </td>
+                <td>
+                    <input class="operator" type="button" value="C" id="button-C" onclick="btmClean()"/>
+                </td>
+            </tr>
             <tr>
                 <td>
                     <input class="number" type="button" value="1" id="button-1" onclick="btm(value)"/>
@@ -31,7 +45,7 @@
                     <input class="number" type="button" value="3" id="button-3" onclick="btm(value)"/>
                 </td>
                 <td>
-                    <input class="operator" type="button" value="C" id="button-C" onclick="btmClean()"/>
+                    <input class="operator" type="button" value="%" id="button-%" onclick="btmPercent()"/>
                 </td>
             </tr>
 

@@ -11,7 +11,7 @@
 </head>
 <body>
     <center>
-    <h1 class="title">Calculatrice JS<h1>
+        <h1 class="title">Calculatrice JS</h1>
         <table>
             <tr>
                 <td colspan="4" align="right" id="case">
@@ -84,7 +84,7 @@
                     <input class="operator" type="button" value="x" id="button-*" onclick="btmMultiply()"/>
                 </td>
                 <td>
-                    <input class="number"type="button" value="0" id="button-0" onclick="btm(value)"/>
+                    <input class="number" type="button" value="0" id="button-0" onclick="btm(value)"/>
                 </td>
                 <td>
                     <input class="operator" type="button" value="÷" id="button-/" onclick="btmDivision()"/>
@@ -95,9 +95,46 @@
             </tr>
 
         </table>
-        </center>
+    </center>
 </body>
 
-<script src="src/script.js"></script>
-</html>
+<script type="module">
+    import {Calc} from "/src/app";
 
+    function btm(val) {
+        document.getElementById("calc-output").innerHTML += val;
+    }
+    function btmOpenPar() {
+        document.getElementById("calc-output").innerHTML += "(";
+    }
+    function btmClosePar() {
+        document.getElementById("calc-output").innerHTML += ")";
+    }
+    function btmClean() {
+        document.getElementById("calc-output").innerHTML = "";
+    }
+    function btmPlus() {
+        document.getElementById("calc-output").innerHTML += "+";
+    }
+    function btmLess() {
+        document.getElementById("calc-output").innerHTML += "-";
+    }
+    function btmMultiply() {
+        document.getElementById("calc-output").innerHTML += "*";
+    }
+    function btmDivision() {
+        document.getElementById("calc-output").innerHTML += "/";
+    }
+    function btmPercent() {
+        document.getElementById("calc-output").innerHTML += "%";
+    }
+    function btmEgal() {
+        showCalc(document.getElementById("calc-output").innerHTML);
+    }
+
+    function showCalc(c) {
+        let calculation = new Calc(c);
+        document.getElementById("calc-output").innerHTML = calculation.getResult();
+    }
+</script>
+</html>
